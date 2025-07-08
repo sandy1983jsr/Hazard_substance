@@ -1,7 +1,19 @@
 import streamlit as st
 import pandas as pd
+import requests
 import random
 from datetime import date, timedelta
+
+BACKEND_URL = st.secrets.get("BACKEND_URL", None)
+
+def is_backend_available():
+    if not BACKEND_URL:
+        return False
+    try:
+        r = requests.get(f"{BACKEND_URL}/substances/", timeout=3)
+        return r.ok
+    except Exception:
+        return False
 
 st.header("SDS Management")
 
@@ -34,3 +46,23 @@ with tab2:
             })
         df_sample = pd.DataFrame(sample_data)
         st.dataframe(df_sample)
+
+st.subheader("Registered SDS Information")
+if is_backend_available():
+    try:
+        resp = requests.get(f"{BACKEND_URL}/substances/")
+        if resp.ok:
+            df = pd.DataFrame(resp.json())
+            if not df.empty and 'sds_path' in df.columns:
+                df_sds = df[['id', 'name', 'sds_path', 'sds_expiry']].rename(
+                    columns={'id': 'substance_id', 'name': 'substance_name'}
+                )
+                st.dataframe(df_sds)
+            else:
+                st.info("No SDS records available.")
+        else:
+            st.error(f"Backend error: {resp.status_code}")
+    except Exception as e:
+        st.error(f"Could not reach backend: {e}")
+else:
+    st.info("Backend not available — only sample data above.")
