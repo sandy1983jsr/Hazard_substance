@@ -4,7 +4,7 @@ import requests
 import random
 
 # Try to get backend URL from secrets, else set to None
-BACKEND_URL = st.secrets.get("BACKEND_URL", None)
+BACKEND_URL = st.secrets.get("BACKEND_URL", "https://hazardsubstance-production.up.railway.app")
 
 def is_backend_available():
     if not BACKEND_URL:
