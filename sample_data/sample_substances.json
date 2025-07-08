@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Acetone",
+    "cas_number": "67-64-1",
+    "supplier": "ChemCo",
+    "hazard_class": "Flammable liquid",
+    "regulatory_tags": {
+      "REACH": {"status": "Candidate"},
+      "Prop65": {"status": "Not Listed"},
+      "TSCA": {"status": "Active"},
+      "CDSCO_INDIA": {"status": "Listed"}
+    }
+  },
+  {
+    "name": "Benzene",
+    "cas_number": "71-43-2",
+    "supplier": "IndusChem",
+    "hazard_class": "Carcinogen",
+    "regulatory_tags": {
+      "REACH": {"status": "Candidate"},
+      "Prop65": {"status": "Listed"},
+      "TSCA": {"status": "Active"},
+      "CDSCO_INDIA": {"status": "Listed"}
+    }
+  },
+  {
+    "name": "Sodium Hydroxide",
+    "cas_number": "1310-73-2",
+    "supplier": "GlobalChem",
+    "hazard_class": "Corrosive",
+    "regulatory_tags": {
+      "REACH": {"status": "Not Listed"},
+      "Prop65": {"status": "Not Listed"},
+      "TSCA": {"status": "Active"},
+      "CDSCO_INDIA": {"status": "Listed"}
+    }
+  },
+  {
+    "name": "Toluene",
+    "cas_number": "108-88-3",
+    "supplier": "ChemEx",
+    "hazard_class": "Flammable liquid",
+    "regulatory_tags": {
+      "REACH": {"status": "Candidate"},
+      "Prop65": {"status": "Listed"},
+      "TSCA": {"status": "Active"},
+      "CDSCO_INDIA": {"status": "Not Listed"}
+    }
+  }
+]
