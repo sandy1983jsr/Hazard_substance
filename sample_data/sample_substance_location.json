@@ -1,0 +1,6 @@
+[
+  { "substance_id": 1, "location_id": 1, "usage_context": "Solvent in paint", "quantity": "500L", "remarks": "" },
+  { "substance_id": 2, "location_id": 2, "usage_context": "Raw material", "quantity": "200L", "remarks": "Restricted area" },
+  { "substance_id": 3, "location_id": 3, "usage_context": "Cleaning agent", "quantity": "300kg", "remarks": "" },
+  { "substance_id": 4, "location_id": 4, "usage_context": "Solvent", "quantity": "150L", "remarks": "Ventilated area" }
+]
