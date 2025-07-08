@@ -1,0 +1,6 @@
+[
+  {"name": "Jamshedpur Plant", "country": "India", "department": "Production"},
+  {"name": "Frankfurt Facility", "country": "Germany", "department": "R&D"},
+  {"name": "Houston Plant", "country": "USA", "department": "Quality Control"},
+  {"name": "Shanghai Plant", "country": "China", "department": "Production"}
+]
