@@ -1,6 +1,18 @@
 import streamlit as st
 import pandas as pd
+import requests
 import random
+
+BACKEND_URL = st.secrets.get("BACKEND_URL", None)
+
+def is_backend_available():
+    if not BACKEND_URL:
+        return False
+    try:
+        r = requests.get(f"{BACKEND_URL}/dashboard/alerts", timeout=3)
+        return r.ok
+    except Exception:
+        return False
 
 st.header("Alerts & Regulatory Risks")
 
@@ -34,3 +46,17 @@ with tab2:
             })
         df_sample = pd.DataFrame(sample_data)
         st.dataframe(df_sample)
+
+st.subheader("Current Alerts")
+if is_backend_available():
+    try:
+        alerts = requests.get(f"{BACKEND_URL}/dashboard/alerts").json()
+        if alerts:
+            df = pd.DataFrame(alerts)
+            st.dataframe(df)
+        else:
+            st.success("No current alerts.")
+    except Exception as e:
+        st.error(f"Could not reach backend: {e}")
+else:
+    st.info("Backend not available — only sample data above.")
